@@ -15,14 +15,26 @@
 <script>
 export default {
   name: 'app',
-  data: function () {
+  data() {
     return {
       title: 'Herzlich willkommen auf meiner Website!'
     }
   },
   methods: {
     greeting: function() {
-      return "Guten tag, Gast!";
+      let today = new Date();
+      let hour = today.getHours();
+      let greet;
+      if (hour >= 21 || hour <= 6) {
+        greet = "Gute nacht, Gast!";
+      } else if (hour >= 6 || hour <= 12) {
+        greet = "Guten morgen, Gast!";
+      } else if (hour >= 12 || hour <= 17) {
+        greet = "Guten tag, Gast!";
+      } else if (hour >= 17 || hour <= 21) {
+        greet = "Guten abend, Gast!";
+      }
+      return greet;
     }
   }
 }
