@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <h1>{{ title }}</h1>
     <p>{{ greeting() }}</p>
     <ul>
@@ -9,15 +8,21 @@
       <li><a href="/" target="_blank">Galerie</a></li>
       <li><a href="/" target="_blank">Kontakt</a></li>
     </ul>
+    <ancestors></ancestors>
   </div>
 </template>
 
 <script>
+import Website from './Website.vue'
+
 export default {
   name: 'app',
+  components: {
+    'ancestors': Website
+  },
   data() {
     return {
-      title: 'Herzlich willkommen auf meiner Website!'
+      title: 'Joonas Heinonen'
     }
   },
   methods: {
@@ -27,11 +32,11 @@ export default {
       let greet;
       if (hour >= 21 || hour <= 6) {
         greet = "Gute nacht, Gast!";
-      } else if (hour >= 6 || hour <= 12) {
+      } else if (hour >= 6 && hour < 12) {
         greet = "Guten morgen, Gast!";
-      } else if (hour >= 12 || hour <= 17) {
+      } else if (hour >= 12 < 17) {
         greet = "Guten tag, Gast!";
-      } else if (hour >= 17 || hour <= 21) {
+      } else if (hour >= 17 || hour < 22) {
         greet = "Guten abend, Gast!";
       }
       return greet;
@@ -41,5 +46,7 @@ export default {
 </script>
 
 <style>
-
+  html {
+    background-color: blue;
+  }
 </style>
