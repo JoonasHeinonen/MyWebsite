@@ -1,24 +1,24 @@
 <template>
   <div id="app">
+    <app-header></app-header>
     <h1>{{ title }}</h1>
     <p>{{ greeting() }}</p>
-    <ul>
-      <li><a href="/" target="_blank">Titelseite</a></li>
-      <li><a href="/" target="_blank">Über mich</a></li>
-      <li><a href="/" target="_blank">Galerie</a></li>
-      <li><a href="/" target="_blank">Kontakt</a></li>
-    </ul>
-    <ancestors></ancestors>
+    <app-gallery></app-gallery>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-import Website from './Website.vue'
-
+import Header from './components/Header.vue'
+import Footer from './components/Header.vue'
+import Gallery from './components/Gallery.vue'
+import Frontpage from './components/Frontpage.vue'
 export default {
   name: 'app',
   components: {
-    'ancestors': Website
+    'app-header': Header,
+    'app-footer': Footer,
+    'app-gallery': Gallery
   },
   data() {
     return {
@@ -47,6 +47,9 @@ export default {
 
 <style>
   html {
-    background-color: blue;
+    background-color: #549454;
+  }
+  h1, h2 {
+    color: #66bb66;
   }
 </style>
