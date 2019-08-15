@@ -3,7 +3,7 @@
         <ul>
             <li v-for="article in articles" v-on:click="article.show = !article.show">
                 <h1>{{ article.title }} </h1>
-                <img v-bind:src="`.../images/${article.id}.jpg`">
+                <img v-show="article.show" v-bind:src="`../images/${article.id}.jpg`">
                 
                 <p v-show="article.show">{{ article.description }}</p>
             </li>
@@ -13,15 +13,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-        articles: [
-            {id: 0, title: 'Jäger', description: 'Mein Großonkel und mein Großvater jagen.', show: false},
-            {id: 1, title: 'Mein Großonkel', description: 'Mein Großonkel während des Krieges.', show: false},
-            {id: 2, title: 'In Karelien', description: 'Sie sind in Karelien', show: false},
-        ]
+    props: {
+        articles: {
+            type: Array,
+            required: true
+        }
+    },
+    data() {
+        return {
+
+        }
     }
-  }
 }
 </script>
 
@@ -32,6 +34,10 @@ export default {
     margin: 40px auto;
     padding: 0 20px;
     box-sizing: border-box;
+}
+img {
+    width: 75%;
+    height: 75%;
 }
 ul {
     display: flex;

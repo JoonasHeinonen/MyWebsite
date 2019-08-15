@@ -3,7 +3,7 @@
     <app-header></app-header>
     <h1>{{ title }}</h1>
     <p>{{ greeting() }}</p>
-    <app-gallery></app-gallery>
+    <app-gallery v-bind:articles="articles"></app-gallery>
     <app-footer></app-footer>
   </div>
 </template>
@@ -22,7 +22,12 @@ export default {
   },
   data() {
     return {
-      title: 'Joonas Heinonen'
+      title: 'Joonas Heinonen',
+      articles: [
+            {id: 0, title: 'Jäger', description: 'Mein Großonkel und mein Großvater jagen.', show: false},
+            {id: 1, title: 'Mein Großonkel', description: 'Mein Großonkel während des Krieges.', show: false},
+            {id: 2, title: 'In Karelien', description: 'Sie sind in Karelien', show: false},
+        ]
     }
   },
   methods: {
