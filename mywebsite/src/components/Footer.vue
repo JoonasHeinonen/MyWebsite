@@ -1,14 +1,28 @@
 <template>
-    <h1>{{ copyright }}</h1>
+    <footer> 
+        <h1>{{ copyright }}  {{ title }}</h1>
+    </footer> 
 </template>
 
 <script>
+import { bus } from '../main';
+
 export default {
-  data() {
-    return {
-        copyright: "Joonas Heinonen (C) 2019"
+    props: {
+        title: {
+            type: String
+        }
+    },
+    data() {
+        return {
+            copyright: "Copyright 2019"
+        }
+    },
+    created() {
+        bus.$on('titleChanged', (data) => {
+            this.title = data;
+        });
     }
-  }
 }
 </script>
 

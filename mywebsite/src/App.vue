@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
     <h1>{{ title }}</h1>
     <p>{{ greeting() }}</p>
     <app-gallery v-bind:articles="articles"></app-gallery>
-    <app-footer></app-footer>
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import Footer from './components/Header.vue'
+import Footer from './components/Footer.vue'
 import Gallery from './components/Gallery.vue'
 import Frontpage from './components/Frontpage.vue'
 export default {
@@ -22,12 +22,12 @@ export default {
   },
   data() {
     return {
-      title: 'Joonas Heinonen',
       articles: [
             {id: 0, title: 'Jäger', description: 'Mein Großonkel und mein Großvater jagen.', show: false},
             {id: 1, title: 'Mein Großonkel', description: 'Mein Großonkel während des Krieges.', show: false},
             {id: 2, title: 'In Karelien', description: 'Sie sind in Karelien', show: false},
-        ]
+        ],
+        title: "Joonas Heinonen"
     }
   },
   methods: {
@@ -45,6 +45,9 @@ export default {
         greet = "Guten abend, Gast!";
       }
       return greet;
+    },
+    updateTitle: function(updatedTitle) {
+      this.title = updatedTitle;
     }
   }
 }

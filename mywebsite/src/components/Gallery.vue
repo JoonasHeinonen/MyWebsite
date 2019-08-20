@@ -8,6 +8,7 @@
                 <p v-show="article.show">{{ article.description }}</p>
             </li>
         </ul>
+        <button v-on:click="deletePic">Delete picture</button>
     </div>
 </template>
 
@@ -22,6 +23,11 @@ export default {
     data() {
         return {
 
+        }
+    },
+    methods: {
+        deletePic: function() {
+            this.articles.pop();
         }
     }
 }
