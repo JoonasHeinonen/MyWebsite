@@ -1,10 +1,15 @@
 <template>
     <header>
         <h1 v-on:click="changeTitle">{{ title }}</h1>
-        <button>Home</button>
-        <button>About</button>
-        <button>Gallery</button>
-        <button>Contact</button>
+        <div>
+            <ul>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </ul>
+            
+        </div>
     </header>
 </template>
 
@@ -29,11 +34,27 @@ export default {
 
 <style scoped>
     header {
-        background: lightgreen;
+        background: #0070d1;
         padding: 10px;
+        height: 100px;
     }
-    h1 {
-        color: #222;
+    h1, a {
+        color: white;
+        transition: 0.2s;
         text-align: center;
+    }
+    ul, a {
+        width: 50%;
+        margin: auto;
+    }        
+    a:hover {
+        color: #c4e3ff;
+        transition: 0.5s;
+    }
+    a {
+        text-decoration: none;
+        margin: 20px;
+        padding: 20px;
+        font-size: 20px;
     }
 </style>
