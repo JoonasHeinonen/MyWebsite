@@ -3,12 +3,11 @@
         <h1 v-on:click="changeTitle">{{ title }}</h1>
         <div>
             <ul>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Gallery</a>
-                <a href="#">Contact</a>
+                    <slot name="home"></slot>
+                    <slot name="about"></slot>
+                    <slot name="gallery"></slot>
+                    <slot name="contact"></slot>
             </ul>
-            
         </div>
     </header>
 </template>
@@ -34,12 +33,14 @@ export default {
 
 <style scoped>
     header {
-        background: #0070d1;
         padding: 10px;
         height: 100px;
+        border-color: #555555;
+        border-style: solid;
+        border-width: 0 0 1px 0;
     }
     h1, a {
-        color: white;
+        color: #555555;
         transition: 0.2s;
         text-align: center;
     }
@@ -48,7 +49,7 @@ export default {
         margin: auto;
     }        
     a:hover {
-        color: #c4e3ff;
+        color: #cccccc;
         transition: 0.5s;
     }
     a {

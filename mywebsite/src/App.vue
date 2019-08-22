@@ -1,24 +1,20 @@
 <template>
   <div id="app">
-    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
+    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)">
+        <a slot="home" id="home" v-on:click="component = 'front-page'">Home</a>
+        <a slot="about" id="about">About</a>
+        <a slot="gallery" id="gallery" v-on:click="showGallery()">Gallery</a>
+        <a slot="contact"  id="contact" v-on:click="component = 'form-helper'">Contact</a>
+    </app-header>
+    <!--
     <h1>{{ title }}</h1>
     <p>{{ greeting() }}</p>
-    <app-gallery v-bind:articles="articles"></app-gallery>
+    -->
+    <keep-alive>
+      <component v-bind:is="component"></component>
+    </keep-alive>
+    <app-gallery id="gallery-element" v-bind:articles="articles" style="visibility: hidden"></app-gallery>
     <app-footer v-bind:title="title"></app-footer>
-    <form-helper>
-      <div slot="form-header">
-        <h3>Form</h3>
-        <p>Please fill in the form!</p>
-      </div>
-      <div slot="form-fields">
-        <input type="text" placeholder="name" required />
-        <input type="email" placeholder="email" required /> <br />
-      </div>
-      <div slot="form-controls">
-        <textarea id="subject" name="subject" placeholder="Write something.." style="margin-top: 10px; resize: none; height:200px; width: 344px;"></textarea><br />
-        <button id="submit-button" v-on:click="handleSubmit">Submit!</button>
-      </div>
-    </form-helper>
   </div>
 </template>
 
@@ -35,7 +31,8 @@ export default {
     'app-header': Header,
     'app-footer': Footer,
     'app-gallery': Gallery,
-    'form-helper': formHelper
+    'form-helper': formHelper,
+    'front-page': Frontpage
   },
   data() {
     return {
@@ -45,7 +42,8 @@ export default {
             {id: 2, title: 'In Karelien', description: 'Sie sind in Karelien', show: false},
         ],
         title: "Joonas Heinonen",
-        titteli: "Homopaska"
+        titteli: "Homopaska",
+      component: 'front-page'
     }
   },
   methods: {
@@ -69,6 +67,11 @@ export default {
     },
     handleSubmit: function() {
       alert("Thank you for your message!");
+    },
+    showGallery: function() {
+      this.component = 'app-gallery';
+      let gallery = document.getElementById("gallery-element");
+      gallery.style.visibility = "visible";
     }
   }
 }

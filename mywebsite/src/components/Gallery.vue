@@ -1,5 +1,6 @@
 <template>
-    <div id="main">
+    <div>
+        <h1>Gallery</h1>
         <ul>
             <li v-for="article in articles" v-on:click="article.show = !article.show">
                 <h1>{{ article.title }} </h1>

@@ -2,22 +2,18 @@
     <div>
         <h1>Please fill out our form...</h1>
         <form>
-            <div id="form-header"></div>
-                <slot name="form-header"></slot>
-            <div id="form-fields">
-                <slot name="form-fields"></slot>
-            </div>
-            <div id="form-controls">
-                <slot name="form-controls"></slot>
-            </div>
-            <div id="useful-links">
-                <ul>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                    <li><a href="#">Link 4</a></li>
-                </ul>
-            </div>
+                <div>
+            <h3>Form</h3>
+            <p>Please fill in the form!</p>
+        </div>
+        <div>
+            <input type="text" placeholder="name" required />
+            <input type="email" placeholder="email" required /> <br />
+        </div>
+        <div>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="margin-top: 10px; resize: none; height:200px; width: 344px;"></textarea><br />
+            <button id="submit-button" v-on:click="handleSubmit">Submit!</button>
+        </div>
         </form>
     </div>
 </template>
@@ -33,7 +29,9 @@ export default {
       }
   },
   methods: {
-
+    handleSubmit: function() {
+      alert("Thank you for your message!");
+    }
   }
 }
 </script>
