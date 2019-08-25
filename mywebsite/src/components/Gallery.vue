@@ -1,12 +1,19 @@
 <template>
-    <div>
+    <div v-bind:articles="articles">
         <h1>Gallery</h1>
         <ul>
+            <!--
             <li v-for="article in articles" v-on:click="article.show = !article.show">
                 <h1>{{ article.title }} </h1>
                 <img v-show="article.show" v-bind:src="`../media/images/${article.id}.jpg`">
                 
                 <p class="divider" v-show="article.show">{{ article.description }}</p>
+            </li>
+            -->
+            <li v-for="image in images" v-on:click="image.show = !image.show">
+                <h2>{{ image.id + ". " + image.title }}</h2>
+                <img v-show="image.show" v-bind:src="`../media/images/${image.id}.jpg`">
+                <p class="divider" v-show="image.show">{{ image.description }}</p>
             </li>
         </ul>
         <!--
@@ -25,35 +32,18 @@ export default {
     },
     data() {
         return {
-
+            images: [
+                {id: 0, title: 'Jäger', description: 'Mein Großonkel und mein Großvater jagen.', show: false},
+                {id: 1, title: 'Mein Großonkel', description: 'Mein Großonkel während des Krieges.', show: false},
+                {id: 2, title: 'In Karelien', description: 'Sie sind in Karelien', show: false},
+            ]
         }
     },
     methods: {
         deletePic: function() {
             this.articles.pop();
         }
-    },
-    /*
-    // lifecycle hooks
-    beforeCreate() {
-        alert("beforeCreate()");
-    },
-    created() {
-        alert("created()");
-    },
-    beforeMount() {
-        alert("beforeMount()");
-    },
-    mounted() {
-        alert("mounted()");
-    },
-    beforeUpdate() {
-        alert('beforeUpdate()');
-    },
-    updated() {
-        alert('updated()');
     }
-    */
 }
 </script>
 
@@ -62,7 +52,7 @@ export default {
 p {
     font-family: scriptina;
 }
-h1, h2, h3 {
+h2, h3 {
     color: black;
     font-style: italic;
 }
@@ -74,8 +64,7 @@ h1, h2, h3 {
     box-sizing: border-box;
 }
 img {
-    width: 75%;
-    height: 75%;
+    width: 50%;
 }
 ul {
     display: flex;
