@@ -1,7 +1,9 @@
 <template>
     <div>
-        <h1>{{ title }}</h1>
-        <p>{{ description }}</p>
+        <article>
+          <h1>{{ title }}</h1>
+          <p>{{ info }}</p>
+        </article>
     </div>
 </template>
 
@@ -10,11 +12,14 @@ export default {
   data() {
     return {
         title: "About",
-        description: "I am me and you are you!"
+        info: "I am an IT enthousiast from Turku, South-Western Finland. "
     }
   }
 }
 </script>
 
 <style scoped>
+  p {
+    padding: 20px;
+  }
 </style>

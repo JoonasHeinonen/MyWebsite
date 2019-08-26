@@ -3,10 +3,11 @@
         <h1 v-on:click="changeTitle">{{ title }}</h1>
         <div>
             <ul>
-                    <slot name="home"></slot>
-                    <slot name="about"></slot>
-                    <slot name="gallery"></slot>
-                    <slot name="contact"></slot>
+                <slot name="home"></slot>
+                <slot name="about"></slot>
+                <slot name="gallery"></slot>
+                <slot name="blog"></slot>
+                <slot name="contact"></slot>
             </ul>
         </div>
     </header>
@@ -38,6 +39,7 @@ export default {
         border-color: #555555;
         border-style: solid;
         border-width: 0 0 1px 0;
+        margin: 0px auto;
     }
     h1, a {
         color: #555555;
@@ -47,15 +49,16 @@ export default {
     ul, a {
         width: 50%;
         margin: auto;
-    }        
+    }
     a:hover {
         color: #cccccc;
         transition: 0.5s;
+        cursor: pointer;
     }
     a {
         text-decoration: none;
-        margin: 20px;
-        padding: 20px;
+        margin: 1em;
+        padding: 1em;
         font-size: 20px;
     }
 </style>

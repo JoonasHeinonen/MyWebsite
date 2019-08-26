@@ -27,11 +27,6 @@ export default {
 </script>
 
 <style scoped>
-    header {
-        background: #0070d1;
-        padding: 10px;
-        width: 100%;
-    }
     h1 {
         color: #0070d1;
         text-align: center;

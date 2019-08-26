@@ -1,24 +1,16 @@
 <template>
     <div v-bind:articles="articles">
-        <h1>Gallery</h1>
-        <ul>
-            <!--
-            <li v-for="article in articles" v-on:click="article.show = !article.show">
-                <h1>{{ article.title }} </h1>
-                <img v-show="article.show" v-bind:src="`../media/images/${article.id}.jpg`">
-                
-                <p class="divider" v-show="article.show">{{ article.description }}</p>
-            </li>
-            -->
-            <li v-for="image in images" v-on:click="image.show = !image.show">
-                <h2>{{ image.id + ". " + image.title }}</h2>
-                <img v-show="image.show" v-bind:src="`../media/images/${image.id}.jpg`">
-                <p class="divider" v-show="image.show">{{ image.description }}</p>
-            </li>
-        </ul>
-        <!--
-        <button v-on:click="deletePic">Delete picture</button>
-        -->
+        <article>
+            <h1>Gallery</h1>
+            <ul>
+                <div class="images" v-for="image in images">
+                    <h2 v-on:click="image.show = !image.show">{{ image.title }}</h2>
+                    <img v-show="image.show" v-bind:src="`../media/images/${image.id}.jpg`">
+                    <p class="divider" v-show="image.show">{{ image.description }}</p>
+                </div>
+            </ul>
+        </article>
+        <link href="https://fonts.googleapis.com/css?family=Italianno|Noto+Sans&display=swap" rel="stylesheet">
     </div>
 </template>
 
@@ -48,23 +40,30 @@ export default {
 </script>
 
 <style scoped>
-
+article {
+    width: 80%;
+}
 p {
     font-family: scriptina;
 }
 h2, h3 {
     color: black;
-    font-style: italic;
+    font-size: 80px;
+    font-family: 'Italianno', cursive;
+    transition: 0.2s;
+}
+h2:hover {
+    color: #222222;
+    cursor: pointer;
 }
 #articles {
     width: 100%;
-    max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
     box-sizing: border-box;
 }
 img {
-    width: 50%;
+    width: 100%;
 }
 ul {
     display: flex;
@@ -73,11 +72,11 @@ ul {
     padding: 0;
     color: #0070d1;
 }
-li {
+.images {
     flex-grow: 1;
     flex-basis: 200px;
     text-align: center;
-    padding: 30px;
+    padding: 0px;
     border: 2px solid #0070d1;
     margin: 5px;
     border-radius: 10px;
