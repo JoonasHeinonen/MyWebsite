@@ -2,7 +2,7 @@
   <div id="app">
     <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)">
         <a slot="home" id="home" v-on:click="component = 'front-page'">Home</a>
-        <a slot="about" id="about" v-on:click="component = 'about'">About</a>
+        <a slot="projects" id="projects" v-on:click="component = 'projects'">Projects</a>
         <a slot="gallery" id="gallery" v-on:click="component = 'app-gallery'">Gallery</a>
         <a slot="blog" id="blog" v-on:click="component = 'app-add-blog'">Blog</a>
         <a slot="contact"  id="contact" v-on:click="component = 'form-helper'">Contact</a>
@@ -26,7 +26,7 @@ import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import Gallery from './components/Gallery.vue'
 import Frontpage from './components/Frontpage.vue'
-import About from './components/About.vue'
+import Projects from './components/projects.vue'
 import formHelper from './components/formHelper.vue'
 import addBlog from './components/addBlog.vue'
 
@@ -38,7 +38,7 @@ export default {
     'app-gallery': Gallery,
     'form-helper': formHelper,
     'front-page': Frontpage,
-    'about': About,
+    'projects': Projects,
     'app-add-blog': addBlog
   },
   data() {

@@ -49,11 +49,10 @@ export default {
     ul {
         list-style-type: none;
         margin: 0;
-        padding-left: 25%;
-        padding-right: 25%;
         overflow: hidden;
         background-color: white;
-
+        display: flex;
+        justify-content: center;
     }
 
     li {
@@ -64,7 +63,7 @@ export default {
         color: white;
         text-align: center;
         text-decoration: none;
-       padding-left: 0;
+        padding-left: 0;
     }
 
     h1 {
@@ -72,7 +71,11 @@ export default {
         text-align: center;
     }
     .some-icon {
-         width: 20%;
-        height: 20%;
+        width: 40%;
+        height: 40%;
+    }
+
+    p {
+        color: black;
     }
 </style>

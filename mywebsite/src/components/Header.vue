@@ -1,10 +1,10 @@
 <template>
     <header>
-        <h1 v-on:click="changeTitle">{{ title }}</h1>
-        <div>
+        <div class="header-div">
+            <h1 v-on:click="changeTitle">{{ title }}</h1>
             <ul>
                 <slot name="home"></slot>
-                <slot name="about"></slot>
+                <slot name="projects"></slot>
                 <slot name="gallery"></slot>
                 <slot name="blog"></slot>
                 <slot name="contact"></slot>
@@ -33,13 +33,19 @@ export default {
 </script>
 
 <style scoped>
+    ul, header {
+        display: flex;
+        justify-content: center;
+    }
     header {
         padding: 10px;
-        height: 100px;
         border-color: #555555;
         border-style: solid;
         border-width: 0 0 1px 0;
         margin: 0px auto;
+    }
+    .header-div {
+        width: 80%;
     }
     h1, a {
         color: #555555;
@@ -49,6 +55,13 @@ export default {
     ul, a {
         width: 50%;
         margin: auto;
+    }
+    a {
+        border-style: solid;
+        border-width: 2px;
+        border-color: #555555;
+        border-radius: 45px;
+        min-width: 100px;
     }
     a:hover {
         color: #cccccc;

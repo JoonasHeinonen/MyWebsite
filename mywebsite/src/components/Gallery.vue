@@ -5,7 +5,7 @@
             <ul>
                 <div class="images" v-for="image in images">
                     <h2 v-on:click="image.show = !image.show">{{ image.title }}</h2>
-                    <img v-show="image.show" v-bind:src="`../media/images/${image.id}.jpg`">
+                    <img v-show="image.show" v-bind:src="`../media/images/${image.id}.png`">
                     <p class="divider" v-show="image.show">{{ image.description }}</p>
                 </div>
             </ul>
