@@ -46,6 +46,9 @@ export default {
 </script>
 
 <style scoped>
+    footer {
+        border: 1px solid grey;
+    }
     ul {
         list-style-type: none;
         margin: 0;

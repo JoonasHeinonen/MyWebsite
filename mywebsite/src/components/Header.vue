@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="header-div">
-            <h1 v-on:click="changeTitle">{{ title }}</h1>
+            <h1>{{ title }}</h1>
             <ul>
                 <slot name="home"></slot>
                 <slot name="projects"></slot>
@@ -23,11 +23,7 @@ export default {
         }
     },
     methods: {
-        changeTitle: function() {
-            //this.$emit('changeTitle', 'Frans Heinonen');
-            this.title = 'Frans Heinonen';
-            bus.$emit('titleChanged', 'Frans Heinonen');
-        }
+        
     }
 }
 </script>
@@ -39,10 +35,11 @@ export default {
     }
     header {
         padding: 10px;
-        border-color: #555555;
+        border-color:grey;
         border-style: solid;
-        border-width: 0 0 1px 0;
-        margin: 0px auto;
+        border-width: 1px 0 1px 0;
+        background-color: white;
+        width: 100%;
     }
     .header-div {
         width: 80%;
@@ -54,7 +51,7 @@ export default {
     }
     ul, a {
         width: 50%;
-        margin: auto;
+        margin: 0 auto;
     }
     a {
         border-style: solid;
@@ -70,7 +67,7 @@ export default {
     }
     a {
         text-decoration: none;
-        margin: 1em;
+        margin: 1em 1em 2em 1em;
         padding: 1em;
         font-size: 20px;
     }

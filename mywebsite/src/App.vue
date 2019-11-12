@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)">
+    <h1 id="site-title">{{ title }}</h1>
+    <app-header>
         <a slot="home" id="home" v-on:click="component = 'front-page'">Home</a>
         <a slot="projects" id="projects" v-on:click="component = 'projects'">Projects</a>
         <a slot="gallery" id="gallery" v-on:click="component = 'app-gallery'">Gallery</a>
-        <a slot="blog" id="blog" v-on:click="component = 'app-add-blog'">Blog</a>
         <a slot="contact"  id="contact" v-on:click="component = 'form-helper'">Contact</a>
     </app-header>
     <!--
@@ -28,7 +28,6 @@ import Gallery from './components/Gallery.vue'
 import Frontpage from './components/Frontpage.vue'
 import Projects from './components/projects.vue'
 import formHelper from './components/formHelper.vue'
-import addBlog from './components/addBlog.vue'
 
 export default {
   name: 'app',
@@ -38,8 +37,7 @@ export default {
     'app-gallery': Gallery,
     'form-helper': formHelper,
     'front-page': Frontpage,
-    'projects': Projects,
-    'app-add-blog': addBlog
+    'projects': Projects
   },
   data() {
     return {
@@ -83,6 +81,22 @@ export default {
   * {
     font-family: 'Noto Sans', sans-serif;
   }
+  #site-title {
+    background-image: url('../media/bg_images/header_bg.jpg'); 
+    background-repeat: no-repeat; 
+    background-size: auto;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 2em 0 0.5em 0;
+    min-height: 4em;
+    color: white;
+    text-shadow: black 1px 0 10px;
+  }
+  body {
+    background-color: #ededed;
+    padding: 0px;
+    margin: 0px;
+  }
   button, input, textarea, form {
         outline: none;
     }
@@ -101,11 +115,11 @@ export default {
     width: 50%;
     padding: 10px;
     min-height: 35em;
+    background-color: white;
   }
   #main {
-    overflow: auto;
     padding-bottom: 100px;
-    max-height: 70%;
+    width: 100%;
   }
   #footer {
     position: relative;
@@ -113,6 +127,7 @@ export default {
     bottom: 0;
     width: 100%;
     color: white;
+    background-color: white;
     text-align: center;
     clear: both;
   }
